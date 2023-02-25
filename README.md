@@ -23,7 +23,7 @@ Here, look at 'image and mask' of 4 different patients. All C[1-7] vertebraes ar
 ![train_images_and_their_mask](https://user-images.githubusercontent.com/49610834/221358169-bf5c2665-0a30-4c6c-a36b-f3e659d9d37b.png)
 
 
-I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7] vertebraes (7ch output).
+I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7] vertebraes (7ch output). 128x128x128 is repeated 3 times to match model input 3x128x128x128.
 
 128x128x128 are in the format z,x,y respectively. where 'z = slice number', 'x = width of slice' and 'y=height of slice' of an image.
 
@@ -35,4 +35,9 @@ Model architecture.
 -----
 
 ### slicing_org.ipynb
-In this file, we cropped 2k * 7 = 14k samples. Each sample have 7 predicted vertebrae and for each sample there is only one single binary label.
+In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of last (5th) image. Here, is how it looks.
+![slicing](https://user-images.githubusercontent.com/49610834/221360768-d5440179-6e1b-4f83-937c-7a2faa5d4200.png)
+
+Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
+
+
