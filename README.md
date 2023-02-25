@@ -8,4 +8,5 @@ For better understanding of project, read the files in the following order:
 4. train_2.ipynb
 5. train_3.ipynb
 6. inference.ipynb
+
 For submission to kaggle, i used the file 'inference_for_kaggle.ipynb'.
