@@ -1,2 +1,2 @@
 # rsna-2022-cervical-fracture-detection
-![Submission](images/my_submission.png?raw=true)
+![Submission](https://raw.github.com/bishnarender/rsna-2022-cervical-fracture-detection/images/my_submission.png)
