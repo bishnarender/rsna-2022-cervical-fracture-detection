@@ -1,6 +1,8 @@
 # rsna-2022-cervical-fracture-detection
 ![my_submission](https://user-images.githubusercontent.com/49610834/221353934-20d43467-4874-426b-ba17-79597f800f43.png)
+
 -----
+
 ### Start 
 For better understanding of project, read the files in the following order:
 1. eda.ipynb 
@@ -11,7 +13,9 @@ For better understanding of project, read the files in the following order:
 6. inference.ipynb
 
 For submission to kaggle, i used the file 'inference_for_kaggle.ipynb'.
+
 -----
+
 ### train_1_efficient.ipynb
 For 3D semantic segmentation, only 87 samples are available in the dataset, but it's sufficient to train 3D semantic segmentation models with good performance.
 
