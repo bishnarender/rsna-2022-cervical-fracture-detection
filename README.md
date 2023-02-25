@@ -40,4 +40,25 @@ In this file, i picked those 75 slices (out of all slices of an image) who have 
 
 Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
 
+-----
 
+### train_2.ipynb
+The output we get in previous step is 15x6x224x224, for a single mask (single vertebrae) for an image 90x224x224. We have 7 such output for 7 vertebrae, for an single image. Thus, for 2018 images we have 2k x 7 = 14k samples for feeding to our second model. 
+
+This model is often called 2.5D CNN because each 2D slice in a vertebrae sample has the information of several adjacent slices, so it is called 2.5D CNN. But the model is a normal 2D CNN.
+![train_2_diagram](https://user-images.githubusercontent.com/49610834/221361642-c8ede1a3-5cad-410d-84bb-feacd25ad30c.jpg)
+
+-----
+
+### train_2.ipynb
+The model structure above being able to train over 'single vertebrae for fracture', does not able to train the patient as a whole for the presence of a all vertebrae fracture. So I picked another model. I arranged all 7 vertebrae (7 times 15x6x224x224) in a single input 105x6x224x224. It treats a patient as one training sample to learn patient all labels.
+
+Model architecture.
+![train_3_diagram](https://user-images.githubusercontent.com/49610834/221361931-21286688-7cee-45ff-aebb-05a8a970d283.jpg)
+
+-----
+
+### inference.ipynb
+Final inference is ensemble of 5 folds of both models.
+1. 5 folds of model presented in train_2.ipynb.
+2. 5 folds of model presented in train_3.ipynb.
