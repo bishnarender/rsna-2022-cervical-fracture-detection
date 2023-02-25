@@ -19,15 +19,20 @@ For submission to kaggle, i used the file 'inference_for_kaggle.ipynb'.
 ### train_1_efficient.ipynb
 For 3D semantic segmentation, only 87 samples are available in the dataset, but it's sufficient to train 3D semantic segmentation models with good performance.
 
-Here, look at image and mask of 4 different patients. All C[1-7] vertebraes are combined in mask.
+Here, look at 'image and mask' of 4 different patients. All C[1-7] vertebraes are combined in mask.
 ![train_images_and_their_mask](https://user-images.githubusercontent.com/49610834/221358169-bf5c2665-0a30-4c6c-a36b-f3e659d9d37b.png)
 
 
 I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7] vertebraes (7ch output).
 
-128x128x128 are in the format z*x*y where 'z = slice number', 'x = width of slice' and 'y=height of slice' of an image.
+128x128x128 are in the format z,x,y respectively. where 'z = slice number', 'x = width of slice' and 'y=height of slice' of an image.
 
-After the training was completed, I predicted 3d masks for each vertebrae for all 2018 samples in the training set.
+After the training was completed, this model became capable of predicting mask for each vertebrae for all 2018 samples in the training set.
 
-Here, is an example of predicted masks of C[1-7] vertebrae.
+Model architecture.
+![train_1_diagram](https://user-images.githubusercontent.com/49610834/221358709-19470e68-d316-430a-b966-11de867b1927.jpg)
 
+-----
+
+### slicing_org.ipynb
+In this file, we cropped 2k * 7 = 14k samples. Each sample have 7 predicted vertebrae and for each sample there is only one single binary label.
