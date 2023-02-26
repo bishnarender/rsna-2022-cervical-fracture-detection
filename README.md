@@ -63,3 +63,10 @@ Model architecture.
 Final inference is ensemble of 5 folds of both models.
 1. 5 folds of model presented in train_2.ipynb.
 2. 5 folds of model presented in train_3.ipynb.
+
+-----
+
+### Future scope
+1. use higher input resolution to train models.
+2. use bigger backbones.
+3. ensemble more models.
