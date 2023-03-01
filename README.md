@@ -30,6 +30,8 @@ I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7
 
 After the training was completed, this model became capable of predicting mask for each vertebrae for all 2018 samples in the training set.
 
+During mask picking we do not choose the same slice mask but instead choose the mask of all slices then resize them . E.g., in [128,128,128] the first 128 represents the slices that we have chosen for images out of 199 slices. If we think that we choose corresponding masks then the mask input would be [128,128,128]. That is wrong, because we choose all masks [199,128,128] then resize them to [128,128,128]. This is because our model will never predict 100%. If we move toward a model with a perfect 100% mask match then we would get 90% of that i.e., 90% of original. Or, If we move toward a model with a non-perfect 110% mask match (10% more area)  then we would get 90% of that i.e., 100% of original.
+
 Model architecture.
 ![train_1_diagram](https://user-images.githubusercontent.com/49610834/221358709-19470e68-d316-430a-b966-11de867b1927.jpg)
 
