@@ -44,9 +44,8 @@ In this file, i picked those 75 slices (out of all slices of an image) who have 
 Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
 
 Crop images with  that mask value over which all vertebrae are properly zoomed. Do care about this while selecting minimum mask value for image cropping.
-![mask_zoom](https://user-images.githubusercontent.com/49610834/222351366-fe3640ea-6167-4944-bdf7-bb45bdb1541a.png)
-<hr style="border:2px solid blue">
-![mask_zoom_1](https://user-images.githubusercontent.com/49610834/222351400-134fcaa3-2d52-4139-8edd-47c0d5babdab.png)
+<kbd>![mask_zoom](https://user-images.githubusercontent.com/49610834/222351366-fe3640ea-6167-4944-bdf7-bb45bdb1541a.png)</kbd>
+<kbd>![mask_zoom_1](https://user-images.githubusercontent.com/49610834/222351400-134fcaa3-2d52-4139-8edd-47c0d5babdab.png)</kbd>
 
 -----
 
