@@ -31,7 +31,7 @@ I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7
 
 After the training was completed, this model became capable of predicting mask for each vertebrae for all 2018 samples in the training set.
 
-Model architecture.
+Model architecture (showing resnet18 encoder block - efficientnet have similar with different features count).
 ![train_1_diagram](https://user-images.githubusercontent.com/49610834/221358709-19470e68-d316-430a-b966-11de867b1927.jpg)
 
 -----
