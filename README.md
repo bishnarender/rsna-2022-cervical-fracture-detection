@@ -37,10 +37,12 @@ Model architecture.
 -----
 
 ### slicing_org.ipynb
-In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks.
+In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks. Center image is the same which was used for mask prediction.
 ![slicing](https://user-images.githubusercontent.com/49610834/221360768-d5440179-6e1b-4f83-937c-7a2faa5d4200.png)
 
 Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
+
+
 
 -----
 
