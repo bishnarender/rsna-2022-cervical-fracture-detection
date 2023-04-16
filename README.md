@@ -9,7 +9,7 @@
 For better understanding of project, read the files in the following order:
 1. eda.ipynb 
 2. train_1_efficient.ipynb
-3. slicing_org.ipynb
+3. slicing_author.ipynb
 4. train_2.ipynb
 5. train_3.ipynb
 6. inference.ipynb
