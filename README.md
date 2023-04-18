@@ -27,7 +27,7 @@ Here, look at 'image and mask' of 4 different patients. All C[1-7] vertebraes ar
 
 I used 128x128x128 input, to train 'efficientnet v2' model, for segmenting C[1-7] vertebraes (7ch output). 128x128x128 is repeated 3 times to match model input 3x128x128x128.
 
-128x128x128 are in the format z,x,y respectively. where 'z = slice number', 'x = width of slice' and 'y=height of slice' of an image.
+128x128x128 are in the format z,x,y respectively. where 'z = slice number', 'x = height of slice' and 'y = width of slice' of an image.
 
 After the training was completed, this model became capable of predicting mask for each vertebrae for all 2018 samples in the training set.
 
