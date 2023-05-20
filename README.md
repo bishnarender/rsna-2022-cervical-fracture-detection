@@ -36,16 +36,14 @@ Model architecture (showing resnet18 encoder block - efficientnet have similar w
 -----
 
 ### slicing_author.ipynb
-In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks. Center image is the same (same slice) which was used for mask prediction.
+In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks. 
 ![slicing](https://user-images.githubusercontent.com/49610834/221360768-d5440179-6e1b-4f83-937c-7a2faa5d4200.png)
 
-Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
+Center image is the same (same slice) which was used for mask prediction. Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
 
 -----
 
 ### train_2.ipynb
-
-<b>InstanceNorm was used in place of BatchNorm due to low GPU memory.</b>
 
 The output we get in previous step is 15x6x224x224, for a single mask (single vertebrae) for an image 90x224x224. We have 7 such output for 7 vertebrae, for an single image. Thus, for 2018 images we have 2k x 7 = 14k samples for feeding to our second model. 
 
