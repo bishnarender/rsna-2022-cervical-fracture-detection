@@ -1,7 +1,6 @@
-# rsna-2022-cervical-fracture-detection
-## 20th place score achieved.
+## rsna-2022-cervical-fracture-detection
+## score at 20th position is achieved.
 ![rsna_submission](https://user-images.githubusercontent.com/49610834/232320186-691792cf-b4ee-4824-a9e9-22407436176a.png)
-
 
 -----
 
@@ -37,16 +36,16 @@ Model architecture (showing resnet18 encoder block - efficientnet have similar w
 -----
 
 ### slicing_author.ipynb
-In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks. Center image is the same which was used for mask prediction.
+In this file, i picked those 75 slices (out of all slices of an image) who have mask predicted, and resized them to 224x224. Thus, we have image in the form 75x224x224. Then, i appended the mask after every 5th image i.e., 5x224x224 + 1x224x224 (mask) = 6x224x224. The appended mask is of center (3rd) image. Here, is how it looks. Center image is the same (same slice) which was used for mask prediction.
 ![slicing](https://user-images.githubusercontent.com/49610834/221360768-d5440179-6e1b-4f83-937c-7a2faa5d4200.png)
 
 Thus, our final shape (after mask fixing) become 90x224x224 that is rearranged to 15x6x224x224.
 
-
-
 -----
 
 ### train_2.ipynb
+
+<b>InstanceNorm was used in place of BatchNorm due to low GPU memory.</b>
 
 The output we get in previous step is 15x6x224x224, for a single mask (single vertebrae) for an image 90x224x224. We have 7 such output for 7 vertebrae, for an single image. Thus, for 2018 images we have 2k x 7 = 14k samples for feeding to our second model. 
 
@@ -57,7 +56,7 @@ This model is often called 2.5D CNN because each 2D slice in a vertebrae sample 
 
 ### train_3.ipynb
 
-<b>InstanceNorm was used in place of BatchNorm due to GPU size restriction.</b>
+<b>InstanceNorm was used in place of BatchNorm due to low GPU memory.</b>
 
 The model structure above being able to train over 'single vertebrae for fracture', does not able to train the patient as a whole for the presence of a all vertebrae fracture. So I picked another model. I arranged all 7 vertebrae (7 times 15x6x224x224) in a single input 105x6x224x224. It treats a patient as one training sample to learn patient all labels.
 
