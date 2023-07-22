@@ -54,7 +54,7 @@ This model is often called 2.5D CNN because each 2D slice in a vertebrae sample 
 
 ### train_3.ipynb
 
-<b>InstanceNorm was used in place of BatchNorm due to low GPU memory.</b>
+<b>InstanceNorm has been used in place of BatchNorm due to the low GPU memory I have.</b>
 
 The model structure above being able to train over 'single vertebrae for fracture', does not able to train the patient as a whole for the presence of a all vertebrae fracture. So I picked another model. I arranged all 7 vertebrae (7 times 15x6x224x224) in a single input 105x6x224x224. It treats a patient as one training sample to learn patient all labels.
 
